@@ -1,0 +1,12 @@
+version: "3.2"
+
+services:
+  student_backend_service:
+    container_name: student_backend_service
+    image: debug_anpr
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - $PWD:/student_backend_service
+    restart: always
+    network_mode: host
+    command: python /student_backend_service/src/anpr_main.py mode=debug_anpr

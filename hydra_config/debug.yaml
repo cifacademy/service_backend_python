@@ -1,0 +1,34 @@
+# Hydra configuration for debugging purposes
+
+# docker running mode
+mode: debug_mode
+
+defaults:
+  - _self_
+  - override job_logging : logging
+
+credentials:
+  secret_key: "@*($%$"
+  access_token_expire_minutes: 60
+  algorithm: "HS256"
+  username: "user"
+  password: "user"
+
+api:
+  object_counter:
+    host: localhost
+    port: 8000
+    workers: 4
+    debug: True
+
+database:
+  agms:
+    database: debug_database
+    enabled: true
+    host: 127.0.0.1
+    port: 3306
+    user: root
+    password: ""
+    db_type: mysql
+
+# service name
